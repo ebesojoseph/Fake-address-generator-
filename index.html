@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake Address generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.css?version='1.1.0'" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-logo">fake addresse generator</div>
+        <ul class="nav-menu">
+          <li><a href="/">Fake Address Generator</a></li>
+          <li><a href="us-fake-address">USA</a></li>
+          <li><a href="uk-fake-address">United Kingdom</a></li>
+          <li><a href="au-fake-address">Australia</a></li>
+          <li><a href="ca-fake-address">Canada</a></li>
+          <li><a href="fake-address">All Countries</a></li>
+        </ul>
+        <ul class="nav-flags">
+          <li>
+            <img src="./images/flags/us.svg" alt="" />
+          </li>
+          <li>
+            <img src="./images/flags/uk.svg" alt="" />
+          </li>
+          <li>
+            <img src="./images/flags/ca.svg" alt="" />
+          </li>
+          <li>
+            <img src="./images/flags/au.svg" alt="" />
+          </li>
+          <li>
+            <img src="./images/flags/de.svg" alt="" />
+          </li>
+          <li>
+            <img src="./images/flags/ch.svg" alt="" />
+          </li>
+          <li>
+            <img src="./images/flags/jp.svg" alt="" />
+          </li>
+        </ul>
+        <form>
+          <div class="flex">
+            <select name="location" id="location-selector">
+              <option value="us">United States</option>
+              <option value="uk">United Kingdom</option>
+            </select>
+            <button>Generate Address</button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <section class="hero-intro">
+      <h1>Random Fake Address Generator</h1>
+      <p>
+        Generate highly realistic, random addresses for software testing,
+        privacy protection, and data masking.
+      </p>
+    </section>
+    <main class="main-layout">
+      <div class="primary-content">
+        <section class="generate-address card">
+          <div class="card-header">
+            <h3>Generated Address Details</h3>
+          </div>
+          <div class="address-display">
+            <p><span>Name:</span> <strong>John Doe</strong></p>
+            <p><span>Gender:</span> <strong>Male</strong></p>
+            <p><span>Street:</span> <strong>123 Maple Avenue</strong></p>
+            <p><span>City:</span> <strong>Springfield</strong></p>
+            <p><span>State:</span> <strong>Illinois</strong></p>
+            <p><span>Zip Code:</span> <strong>62704</strong></p>
+            <p><span>Phone:</span> <strong>555-010-9988</strong></p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Why Use a Fake Address Generator?</h2>
+          <div class="text-grid">
+            <article>
+              <h3>Software Testing & QA</h3>
+              <p>
+                Developers often need dummy data to test registration forms or
+                shipping APIs without risking real user data privacy.
+              </p>
+            </article>
+            <article>
+              <h3>Privacy & Security</h3>
+              <p>
+                Protect your identity from data brokers when signing up for
+                non-essential digital services.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="accordion">
+            <div class="accordion-item">
+              <input type="checkbox" id="faq1" class="accordion-input" />
+              <label for="faq1" class="accordion-label"
+                >What is a Fake Address Generator used for?</label
+              >
+              <div class="accordion-content">
+                <p>
+                  A fake address generator is primarily used by developers and
+                  quality assurance testers...
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <section class="custom-gen card">
+          <h3>Custom Generation</h3>
+          <form>
+            <div class="form-group">
+              <label>Gender:</label>
+              <select>
+                <option>Random</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>State:</label>
+              <select>
+                <option>California</option>
+                <option>New York</option>
+              </select>
+            </div>
+            <button class="btn-sidebar">Apply Filters</button>
+          </form>
+        </section>
+
+        <section class="featured-posts card">
+          <h3>Featured Guides</h3>
+          <ul class="post-list">
+            <li>
+              <a href="#">
+                <img src="./images/blog1.jpg" alt="SEO Testing" />
+                <span>How to use fake data for API testing</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="tags-section card">
+          <h3>Related Topics</h3>
+          <div class="tag-cloud">
+            <a href="/us-fake-address">US Address Generator</a>
+            <a href="/uk-fake-address">UK Postal Codes</a>
+            <a href="/ca-fake-address">Canada Map Data</a>
+            <a href="/random-name">Random Name Picker</a>
+            <a href="/test-data">Software Testing Data</a>
+            <a href="/identity-protection">Privacy Tools</a>
+            <a href="/api-testing">API Dummy Data</a>
+            <a href="/valid-zip-codes">Valid ZIP Codes</a>
+            <a href="/business-address">Fake Business Address</a>
+            <a href="/au-fake-address">Australia Address</a>
+            <a href="/germany-address">DE Random Address</a>
+            <a href="/data-masking">Data Masking Tips</a>
+          </div>
+        </section>
+      </aside>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-link-cloud">
+        <a href="/us-gen">US Address Generator</a> |
+        <a href="/usa-gen">USA Address Generator</a> |
+        <a href="/random-us">Random US Address Generator</a> |
+        <a href="/fake-us">Fake US Address Generator</a> |
+        <a href="/real-us">Real US Address Generator</a> |
+        <a href="/po-box">US P.O Box Address Generator</a> |
+        <a href="/itunes-us">iTunes US Address Generator</a> |
+        <a href="/apple-id">Apple ID US Address Generator</a> |
+        <a href="/us-phone">US Phone Numbers Generator</a> |
+        <a href="/zip-gen">US Postal Zip Code Generator</a> |
+        <a href="/house-gen">US House Address Generator</a> |
+        <a href="/ip-gen">US IP Address Generator</a> |
+        <a href="/business-gen">US Business and Corporate Address Generator</a>
+
+        <div class="footer-meta">
+          <a href="/more">Generate More USA Addresses Here >></a> ||
+          <a href="/privacy">Privacy Policy</a>
+          <p>For Enquiries, Advertisements & Guest Posting: info@siit.co</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

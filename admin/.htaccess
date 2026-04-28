@@ -1,0 +1,12 @@
+Options -Indexes
+
+# Allow CORS for admin SPA (same origin only in production)
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Protect admin API — only allow PHP files to be executed
+<Files "*.php">
+    Order Allow,Deny
+    Allow from all
+</Files>

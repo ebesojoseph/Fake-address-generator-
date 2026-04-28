@@ -1,0 +1,419 @@
+/* --- Global Reset & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- Header & Branding --- */
+header {
+  padding: 20px 5%;
+}
+
+.nav-logo {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f39c12; /* Orange color from your screenshot */
+}
+
+.nav-logo::after {
+  content: " ADDRESS GENERATOR";
+  color: #5d83f1; /* Light blue color from your screenshot */
+}
+
+/* --- Navigation Bars --- */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Primary Green Nav */
+.nav-menu {
+  background-color: #8cc63f; /* Bright green */
+  display: flex;
+  list-style: none;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.nav-menu li a:hover {
+  background-color: #7ab332;
+}
+
+/* Secondary Light Green Nav (Flags/Random) */
+.nav-flags {
+  background-color: #c9e2a5; /* Lighter green */
+  display: flex;
+  list-style: none;
+  padding: 10px 5%;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-flags li img {
+  width: 24px;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+/* --- Search/Generator Form in Header --- */
+nav form {
+  background: #f4f4f4;
+  padding: 15px 5%;
+  border-bottom: 3px solid #5d83f1;
+}
+
+.flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+select,
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #5d83f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #4a6edb;
+}
+
+/* --- Main Content Layout --- */
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+/* Container for the 2-column layout */
+/* Ensure the grid targets the two main columns */
+.main-layout {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr; /* Gives main content more room */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  align-items: start; /* Prevents sidebar from stretching weirdly */
+}
+
+/* Fix for the Address Display spacing */
+.address-display {
+  padding: 20px;
+}
+
+.address-display p {
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Button Styling for the Main Generator */
+.btn-generate {
+  width: 100%;
+  padding: 15px;
+  background: #5d83f1;
+  color: white;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Form spacing in the Sidebar */
+.form-group {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-sidebar {
+  margin: 15px;
+  background: #8cc63f; /* Green to distinguish from main button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- Footer Styles --- */
+.site-footer {
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  padding: 40px 0 20px 0;
+  margin-top: 60px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #5d83f1;
+  text-transform: uppercase;
+}
+
+/* Inline List Logic */
+.footer-inline-list {
+  list-style: none;
+  padding: 0;
+  line-height: 2; /* Spacing between rows */
+}
+
+.footer-inline-list li {
+  display: inline;
+}
+
+.footer-inline-list li a {
+  text-decoration: none;
+  color: #666;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-inline-list li a:hover {
+  color: #8cc63f; /* Your brand green */
+}
+
+/* Add a separator between links */
+.footer-inline-list li:not(:last-child)::after {
+  content: "|";
+  margin: 0 10px;
+  color: #ccc;
+  font-weight: 300;
+}
+
+/* Footer Bottom Area */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.footer-legal {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal a {
+  color: #999;
+  text-decoration: none;
+}
+
+/* Mobile Responsive Footer */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+/* Mobile Tweak */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar stacking */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card Styling */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card h3 {
+  background-color: #5d83f1; /* Using your logo blue */
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-family: "Ubuntu", sans-serif;
+  text-transform: uppercase;
+}
+
+/* Featured Post List Styling */
+.post-list {
+  list-style: none;
+  padding: 15px;
+}
+
+.post-list li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.post-list a {
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.post-list img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Responsive: Collapse to 1 column on mobile */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.generator-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Tool takes 2/3, Sidebar 1/3 */
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.content-section,
+.faq-section {
+  line-height: 1.6;
+  color: #333;
+}
+
+.text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* FAQ Accordion Styling */
+.faq-section {
+  width: 100%;
+  margin: 40px auto;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+
+.accordion-input {
+  display: none; /* Hide the checkbox */
+}
+
+.accordion-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.3s;
+}
+
+.accordion-label:hover {
+  background: #fcfcfc;
+}
+
+/* The Plus Sign */
+.accordion-label::after {
+  content: "+";
+  font-size: 1.5rem;
+  font-weight: 400;
+  transition: transform 0.3s;
+}
+
+.accordion-content {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: all 0.35s;
+  background: #fff;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Logic to open accordion and change plus to minus */
+.accordion-input:checked ~ .accordion-content {
+  max-height: 200px; /* Adjust if your text is very long */
+  padding-bottom: 20px;
+}
+
+.accordion-input:checked ~ .accordion-label::after {
+  content: "−"; /* This is a minus sign */
+  transform: rotate(180deg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .generator-container,
+  .text-grid {
+    grid-template-columns: 1fr;
+  }
+}

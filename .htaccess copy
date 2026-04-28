@@ -1,0 +1,107 @@
+Options -Indexes
+
+# ── Security headers ─────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Protect sensitive directories ─────────────────────────────
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# ─────────────────────────────────────────────────────────────
+# 0. BLOCK DIRECT ACCESS TO PROTECTED PATHS
+# ─────────────────────────────────────────────────────────────
+# Block includes/ folder
+RewriteRule ^includes/ - [F,L]
+
+# Block admin/_header.php and admin/_footer.php (partials)
+RewriteRule ^admin/_.*\.php$ - [F,L]
+
+# Block PHP execution in uploads/
+RewriteCond %{REQUEST_URI} ^/uploads/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ - [F,L]
+RewriteCond %{REQUEST_URI} ^/uploads/.*\.php$
+RewriteRule ^ - [F,L]
+
+# ─────────────────────────────────────────────────────────────
+# 1. HOME PAGE NORMALIZATION  (your existing rule)
+# ─────────────────────────────────────────────────────────────
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*)index\.(html|php) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# ─────────────────────────────────────────────────────────────
+# 2. ASSET PROTECTION  (your existing rule)
+# Serve real files and directories immediately — no rewrites
+# ─────────────────────────────────────────────────────────────
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ─────────────────────────────────────────────────────────────
+# 3. BLOG SLUG ROUTING  (new — runs before clean-URL rules)
+# ─────────────────────────────────────────────────────────────
+
+# /blog  →  blog.php  (listing)
+RewriteRule ^blog/?$  blog.php  [L,QSA]
+
+# /blog/category/{slug}  →  blog.php?category={slug}
+RewriteRule ^blog/category/([a-z0-9-]+)/?$  blog.php?category=$1  [L,QSA]
+
+# /blog/tag/{slug}  →  blog.php?tag={slug}
+RewriteRule ^blog/tag/([a-z0-9-]+)/?$  blog.php?tag=$1  [L,QSA]
+
+# /blog/{post-slug}  →  blog-post.php?slug={post-slug}
+RewriteRule ^blog/([a-z0-9-]+)/?$  blog-post.php?slug=$1  [L,QSA]
+
+# /admin  →  admin/index.php
+RewriteRule ^admin/?$  admin/index.php  [L,QSA]
+
+# /admin/login  →  admin/login.php
+RewriteRule ^admin/login/?$  admin/login.php  [L,QSA]
+
+# /admin/logout  →  admin/logout.php
+RewriteRule ^admin/logout/?$  admin/logout.php  [L,QSA]
+
+# ─────────────────────────────────────────────────────────────
+# 4. CLEAN URLS: Remove .php / .html from the URL bar
+#    (your existing rule — unchanged)
+# ─────────────────────────────────────────────────────────────
+RewriteRule ^fake-address/?$              locale.php  [L,QSA]
+RewriteRule ^fake-address/([a-z0-9-]+)/?$ locale.php  [L,QSA]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.+)\.(html|php)[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# ─────────────────────────────────────────────────────────────
+# 5. INTERNAL REWRITES: map clean URLs back to .html / .php
+#    (your existing rules — unchanged)
+# ─────────────────────────────────────────────────────────────
+
+# Check for HTML first
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Check for PHP second
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+</IfModule>
+
+# ── Block PHP in uploads (belt-and-suspenders) ────────────────
+<FilesMatch "\.php$">
+    <If "%{REQUEST_URI} =~ m|^/uploads/|">
+        Order allow,deny
+        Deny from all
+    </If>
+</FilesMatch>
+
+# ── Block sensitive file types ────────────────────────────────
+<FilesMatch "\.(sql|env|md|git|htpasswd|log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
