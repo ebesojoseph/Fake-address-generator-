@@ -1,0 +1,17 @@
+{
+    "name": "fakeaddrgen/app",
+    "description": "Fake Address Generator powered by FakerPHP",
+    "require": {
+        "php": ">=8.1",
+        "fakerphp/faker": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "includes/",
+            "App\\Models\\": "models/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
